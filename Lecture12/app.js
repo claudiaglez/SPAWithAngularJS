@@ -8,7 +8,6 @@
   function MsgController($scope, $filter) {
     $scope.name = "Claudia";
     $scope.stateOfBeing = "hungry";
-    $scope.cookieCost = .45;
 
     $scope.sayMessage = function () {
       var msg = "Claudia wants to learn AngularJS";
