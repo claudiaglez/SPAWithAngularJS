@@ -12,7 +12,9 @@
     <div ng-controller='MsgController'>
       {{name}} has a message for you <br>
       Original: {{sayMessage()}} <br>
-      Loves: {{sayLovesMessage()}}
+      Loves: {{sayLovesMessage()}} <br>
+      Truth: {{sayLovesMessage() | truth: 'AngularJS' : 'JavaScript'}} <br>
+      BIG TRUTH: {{sayLovesMessage() | truth: 'AngularJS' : 'JavaScript' | uppercase}} 
       <div>
         <button ng-click="feedPeople()">Feed People</button>
         <br>
