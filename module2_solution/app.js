@@ -8,7 +8,9 @@
         var toBuyItems = [
           { name: "Leche", quantity: 2 },
           { name: "Pan", quantity: 1 },
-          { name: "Huevos", quantity: 12 }
+          { name: "Huevos", quantity: 12 },
+          { name: "Aceitunas", quantity: 3 },
+          { name: "Harina", quantity: 4 }
         ];
         var boughtItems = [];
   
