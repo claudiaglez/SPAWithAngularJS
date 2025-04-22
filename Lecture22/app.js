@@ -6,7 +6,7 @@
   .provider('ShoppingListService', ShoppingListServiceProvider)
   .config(Config);
 
-  Config.$inject = ['ShoppingListServiceProvider'];ç
+  Config.$inject = ['ShoppingListServiceProvider'];
   function Config(ShoppingListServiceProvider) {
     ShoppingListServiceProvider.defaults.maxItems = 2;
   }
