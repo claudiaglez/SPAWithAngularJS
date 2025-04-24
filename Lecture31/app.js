@@ -44,23 +44,23 @@
     });
   
     function displayCookieWarning() {
-      // Using Angluar jqLite
+      // Using Angular jqLite
       // var warningElem = element.find("div");
       // console.log(warningElem);
       // warningElem.css('display', 'block');
   
-      // If jQuery included before Angluar
+      // If jQuery included before Angular
       var warningElem = element.find("div.error");
       warningElem.slideDown(900);
     }
   
   
     function removeCookieWarning() {
-      // Using Angluar jqLite
+      // Using Angular jqLite
       // var warningElem = element.find("div");
       // warningElem.css('display', 'none');
   
-      // If jQuery included before Angluar
+      // If jQuery included before Angular
       var warningElem = element.find("div.error");
       warningElem.slideUp(900);
     }
