@@ -11,7 +11,7 @@
   
   function ListItem() {
     var ddo = {
-      templateUrl: 'listItem.html'
+      templateUrl: 'listItem.html' //Para insertar más de una línea de HTML
     };
   
     return ddo;
