@@ -34,36 +34,46 @@
 function MenuSearchService($http) {
   var service = this;
 
-  service.getMatchedMenuItems = function (searchTerm) {
-    return $http({
-      method: "GET",
-      url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json"
-    }).then(function (response) {
-      var data = response.data;
-      if (!data) {
-        console.error("No se encontraron datos en response.data");
-        return [];
+service.getMatchedMenuItems = function (searchTerm) {
+  console.log("Término de búsqueda recibido:", searchTerm);
+
+  return $http({
+    method: "GET",
+    url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json"
+  }).then(function (response) {
+    var data = response.data;
+    console.log("Datos recibidos del servidor:", data);
+
+    if (!data) {
+      console.error("No se encontraron datos en response.data");
+      return [];
+    }
+
+    var foundItems = [];
+
+    Object.values(data).forEach(function (category) {
+      if (category.menu_items && Array.isArray(category.menu_items)) {
+        category.menu_items.forEach(function (item) {
+          console.log("Item actual:", item);
+
+          if (
+            item.description &&
+            searchTerm &&
+            typeof item.description === 'string' &&
+            typeof searchTerm === 'string' &&
+            item.description.toLowerCase().includes(searchTerm.toLowerCase())
+          ) {
+            foundItems.push(item);
+          }
+        });
       }
-
-      var foundItems = [];
-
-      // Recorremos cada categoría (A, B, C, etc.)
-      Object.values(data).forEach(function (category) {
-        if (category.menu_items && Array.isArray(category.menu_items)) {
-          category.menu_items.forEach(function (item) {
-            if (
-              item.description &&
-              item.description.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              foundItems.push(item);
-            }
-          });
-        }
-      });
-
-      return foundItems;
     });
-  };
+
+    console.log("Items encontrados:", foundItems);
+    return foundItems;
+  });
+};
+
 }
 
 
