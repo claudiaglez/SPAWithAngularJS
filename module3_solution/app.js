@@ -35,22 +35,24 @@
     var service = this;
 
     service.getMatchedMenuItems = function (searchTerm) {
-      return $http({
-        method: "GET",
-        url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json"
-      }).then(function (response) {
-        var allItems = response.data.menu_items;
-        var foundItems = [];
+return $http({
+  method: "GET",
+  url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json"
+}).then(function (response) {
+  var allItems = response.data;
+  var allItemsArray = Object.values(allItems);
+  var foundItems = [];
 
-        for (var i = 0; i < allItems.length; i++) {
-          var description = allItems[i].description.toLowerCase();
-          if (description.includes(searchTerm.toLowerCase())) {
-            foundItems.push(allItems[i]);
-          }
-        }
+  for (var i = 0; i < allItemsArray.length; i++) {
+    var description = allItemsArray[i].description.toLowerCase();
+    if (description.includes(searchTerm.toLowerCase())) {
+      foundItems.push(allItemsArray[i]);
+    }
+  }
 
-        return foundItems;
-      });
+  return foundItems;
+});
+
     };
   }
 
