@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Narrow It Down</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
   <button ng-click="narrow.narrowItDown()">Narrow It Down For Me!</button>
 
   <found-items items="narrow.found" on-remove="narrow.removeItem(index)"></found-items>
-  <div ng-if="narrow.found.length === 0 && narrow.searched">Nothing found</div>
+  <div ng-if="narrow.found && narrow.found.length === 0 && narrow.searched">Nothing found</div>
 </div>
 
 <script src="app.js"></script>
